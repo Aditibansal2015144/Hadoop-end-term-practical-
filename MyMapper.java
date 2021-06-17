@@ -16,7 +16,7 @@ public class MyMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 		String inputstring = value.toString();
 		for (String x : inputstring.split(" ")) {
-			if (x.equals("India") || x.equals("india")) {
+			if (x.equals("India") || x.equals("India,") || x.equals("India.")) {
 				context.write(new Text(x), new IntWritable(1));
 			}
 		}
